@@ -1,0 +1,70 @@
+---
+title             : "AP Seminar Week 3 Readings"
+shorttitle        : "AP Seminar Week 3 Readings"
+
+author: 
+  - name          : "Jess Esplin"
+    affiliation   : "1"
+    corresponding : no    # Define only one corresponding author
+    address       : "Dept. of Political Science, UW-Madison"
+    email         : "jesplin@wisc.com"
+
+
+affiliation:
+  - id            : "1"
+    institution   : "University of Wisconsin-Madison"
+
+
+authornote: |
+  Jess Esplin, Ph.D. Student. Department of Political Science at the University of Wisconsin-Madison.
+
+  This document is an exercise for PS811-Introduction to R and reviews each reading assigned for Week 3 of the Fall 2020 AP Seminar class, PS904.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : ["references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+r_refs("references.bib")
+```
+
+# Logistics
+I used `r cite_r("references.bib")` for this exercise.
+
+# Assigned Readings for Week 3 of AP Seminar
+
+The assigned readings for Week 3 were Zaller (1992) , Zaller (2012), and Kinder (1998). Each work discusses important aspects of mass public opinion.  
+
+@zallerNatureOriginsMass1992 incorporates existing scholarship in public opinion and psychology to build a comprehensive model demonstrating how individuals form political opinions in the form of a Bayesian updating model, which we call the RAS model for Receive, Accept, Sample. The model is then scaled up to explain how mass public opinion is largely shaped by exposure to elite discourse on issues through each individuals' political awareness, generally facilitated by the media. Zaller tests this model using NES survey data, applying the RAS to a broad range of issues, including racial equality, the Vietnam War, and presidential approval [@zallerNatureOriginsMass1992]. 
+
+In 2012, Zaller returns to the topic to address criticisms of the RAS model and update it to account for group interest voters and political parties as political organizers. He explains that ideologies are packaged together and sold to voters by political parties in order to create coalitions, appease interest groups, and fundraise. This explains @converseNatureBeliefSystems2006 's findings that the majority of the public does not have an underlying belief structure. He again uses NES data to test this updated version of the RAS model [@zallerWhatNatureOrigins2012]. 
+
+@kinderOpinionActionRealm1998 reviews the literature on public opinion for The Handbook of Social Psychology. He addresses many topics within public opinion, including its definition, Democratic citzenship, how opinion is formed, and the importance of social context. Notably, Kinder posits challenges of democracy can be resolved through "miracles of aggregation" - individuals may be ignorant but the public is made wiser through shared knowledge and he proposes a more central focus on ideas borrowed from psychology of framing, group consciousness, and identity to explain political behavior. Kinder's book chapter serves as a meta-analysis to synthesize and focus scholarship within public opinion [@kinderOpinionActionRealm1998].
+
+\newpage
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
