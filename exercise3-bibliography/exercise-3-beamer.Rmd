@@ -1,0 +1,32 @@
+---
+title: "A Review of AP Seminar Week 3 Readings"
+author: "Jess Esplin"
+date: "9/30/2020"
+output: 
+  beamer_presentation:
+    theme: "Berlin"
+    colortheme: "beaver"
+    fonttheme: "structurebold"
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Pros
+
+- Good information
+- Interesting model from Zaller
+- Useful for my research
+
+## Cons
+
+- Very long
+- Dense and complicated
+- Scary implications for how people form political opinions in age of fake news
+
+## Reference Page
+@kinderOpinionActionRealm1998
+@zallerNatureOriginsMass1992
+@zallerWhatNatureOrigins2012
