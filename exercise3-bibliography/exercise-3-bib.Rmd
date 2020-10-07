@@ -58,6 +58,10 @@ In 2012, Zaller returns to the topic to address criticisms of the RAS model and 
 
 @kinderOpinionActionRealm1998 reviews the literature on public opinion for The Handbook of Social Psychology. He addresses many topics within public opinion, including its definition, Democratic citzenship, how opinion is formed, and the importance of social context. Notably, Kinder posits challenges of democracy can be resolved through "miracles of aggregation" - individuals may be ignorant but the public is made wiser through shared knowledge and he proposes a more central focus on ideas borrowed from psychology of framing, group consciousness, and identity to explain political behavior. Kinder's book chapter serves as a meta-analysis to synthesize and focus scholarship within public opinion [@kinderOpinionActionRealm1998].
 
+# Comments
+
+
+
 \newpage
 
 # References
