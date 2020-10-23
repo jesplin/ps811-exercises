@@ -1,0 +1,20 @@
+---
+title: "Brainstorming Final Project"
+author: "Jess Esplin"
+date: "10/22/2020"
+output: pdf_document
+---
+
+1. What question(s) are you interested in?
+
+
+2. What are your independent and dependent variables?
+
+
+3. How do you plan to measure the variables?
+
+
+4. What data will you need to collect? Which dataset(s) will you use?
+
+
+5. What methods will you use to analyze the data?
