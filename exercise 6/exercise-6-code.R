@@ -1,4 +1,4 @@
-# installed the here package first
+# installed the here package first using install.packages("here")
 
 # load packages
 library("here")
@@ -39,8 +39,8 @@ food_data_95[order(food_data_95$fav_cuisine), ]
 
 # 9
 # find mean and standard deviation and summarize
-data.frame(chicken_calories.mean = mean(food_data_95$chicken_calories, na.rm = TRUE),
-           chicken_calories.sd = sd(food_data_95$chicken_calories, na.rm = TRUE),
+data.frame(chicken_calories.mean = mean(food_data_95$calories_chicken, na.rm = TRUE),
+           chicken_calories.sd = sd(food_data_95$calories_chicken, na.rm = TRUE),
            tortilla_calories.mean = mean(food_data_95$tortilla_calories, na.rm = TRUE),
            tortilla_calories.sd = sd(food_data_95$tortilla_calories, na.rm = TRUE),
            turkey_calories.mean = mean(food_data_95$turkey_calories, na.rm = TRUE),
@@ -55,19 +55,11 @@ aggregate(formula = cbind(Gender, GPA) ~ weight + cuisine,
             c(mean = mean(x), sd = sd(x))
           })
 
-
-# not sure I did this one above correctly
-# example from Marcy's lecture
-aggregate(formula = cbind(budget, gross) ~ country + genres, 
-          data = movie_metadata_100, 
-          FUN = function(x){
-            c(mean = mean(x), sd = sd(x))
-          })
+# not sure I did this one above correctly - don't fully understand which is x and which is y?
 
 
 
-
-# Tidyverse 
+# Tidyverse Section
 
 # 2
 # load data
@@ -83,8 +75,8 @@ facebook_data_500tidy <- facebook_data %>%
 dplyr::select(facebook_data_500tidy, share_count, comment_count)
 
 # 5
-# mutate post types, this didn't work
-post_type_coded %>%
+# mutate post types
+post_type_coded <-
   select (facebook_data_500tidy, Post.Type) %>%
   mutate(
            link = 1,
@@ -110,7 +102,7 @@ summarise(facebook_data_500tidy,
 # 8
 # summarize the data above for the mainstream values (in variable category)
 facebook_data_500tidy %>% 
-  group_by(mainstream, Category) %>% 
+  group_by("mainstream", Category) %>% 
   summarise(share_count.mean = mean(share_count, na.rm = TRUE),
             share_count.sd = sd(share_count, na.rm = TRUE),
             reaction_count.mean = mean(reaction_count, na.rm = TRUE),
@@ -118,19 +110,3 @@ facebook_data_500tidy %>%
             comment_count.mean = mean(comment_count, na.rm = TRUE),
             comment_count.sd = sd(comment_count, na.rm = TRUE)) %>% 
   ungroup()
-
-#this isn't working and I'm not sure why
-
-
-
-## Revisit Problems 9 (base R) and 5 and 8 (Tidyverse) are not complete
-
-
-
-
-
-
-
-
-
-
