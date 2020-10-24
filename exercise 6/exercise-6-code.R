@@ -1,3 +1,5 @@
+# MS: awesome job! see comments below!
+
 # installed the here package first using install.packages("here")
 
 # load packages
@@ -11,6 +13,7 @@ library(purrr)
 
 # 2
 # load data
+# MS: for organizational purposes, consider putting your CSV files into a "data" folder
 food_data <- read.csv(here("exercise 6/food_coded.csv"))
 
 # 3
@@ -56,7 +59,7 @@ aggregate(formula = cbind(Gender, GPA) ~ weight + cuisine,
           })
 
 # not sure I did this one above correctly - don't fully understand which is x and which is y?
-
+# MS: check answer key! I'll write a clearer explanation there.
 
 
 # Tidyverse Section
@@ -72,10 +75,12 @@ facebook_data_500tidy <- facebook_data %>%
 
 # 4
 # look at even numbered columns
+# MS: look at all the even-numbered columns, meaning columns 2-12
 dplyr::select(facebook_data_500tidy, share_count, comment_count)
 
 # 5
 # mutate post types
+# MS: check answer key
 post_type_coded <-
   select (facebook_data_500tidy, Post.Type) %>%
   mutate(
@@ -101,6 +106,7 @@ summarise(facebook_data_500tidy,
 
 # 8
 # summarize the data above for the mainstream values (in variable category)
+# MS: group_by(Category == "mainstream")
 facebook_data_500tidy %>% 
   group_by("mainstream", Category) %>% 
   summarise(share_count.mean = mean(share_count, na.rm = TRUE),
