@@ -106,7 +106,7 @@ summarise(facebook_data_500tidy,
 
 # 8
 # summarize the data above for the mainstream values (in variable category)
-# MS: group_by(Category == "mainstream")
+# MS: sorry--scratch my previous comment, this is great!
 facebook_data_500tidy %>% 
   group_by("mainstream", Category) %>% 
   summarise(share_count.mean = mean(share_count, na.rm = TRUE),
