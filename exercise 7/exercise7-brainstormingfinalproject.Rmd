@@ -5,16 +5,28 @@ date: "10/22/2020"
 output: pdf_document
 ---
 
+Hi Marcy, I'm answering these questions for my AP Seminar final project because I'm not sure yet what my final project will be for 812 Intro to Stats. Just wanted to note this because I'm not sure I can do my AP final project in R quite yet because I might have to do some of it in Python since that's how they are providing some of the data.
+
 1. What question(s) are you interested in?
+
+Does support for the Black Lives Matter movement vary with the organization centered in expressions of support? More specifically, do people who express support for the Black Lives Matter movement center local community groups or do they center a national/global organization (most commonly, the Black Lives Matter Global Network)? My hypothesis is that people who support BLM center local groups whereas people who do not support BLM center national/global organizations.
 
 
 2. What are your independent and dependent variables?
 
+IV: organization centered
+DV: support or opposition to BLM
+
 
 3. How do you plan to measure the variables?
 
+I will need a coding scheme for both variables. 
 
 4. What data will you need to collect? Which dataset(s) will you use?
 
+I will be using talk radio data and tweets provided by the teaching team. I may also use Local Voices Network data.
+
 
 5. What methods will you use to analyze the data?
+
+I'm not quite sure yet. I think I will need to code the data for support/opposition to the BLM movement and look for correlations with instances that organizations are mentioned. 
