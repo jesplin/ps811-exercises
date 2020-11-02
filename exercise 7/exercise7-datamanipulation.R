@@ -33,6 +33,9 @@ print(current_supreme_court)
 supremecourt_df <- as.data.frame(current_supreme_court)
 view(supremecourt_df)
 
+# ms: this could just be (skip the tibble()):
+current_supreme_court <- data.frame(justice, state, position, replacing, year_confirmed, senate_conf_vote, nominated_by)
+current_supreme_court
 
 
 # Problem 2: justices.csv
@@ -71,6 +74,9 @@ table(scotus_data$justiceName)
 full_data <- inner_join(justice_data, scotus_data, by = "justiceName")
 # could not view(full_data)
 
+# ms: I would suggest doing it by justiceName and term because you're trying to link these two variables
+
+# ms: full data showed up for me but my laptop might just have more memory than you...don't worry about it! the data is in!
 
 
 # Problem 4: filter to justices with Martin-Quinn scores
@@ -88,9 +94,17 @@ scored_justices %>%
 # returns TRUE so I don't think I'm filtering this correctly
 ## Marcy said this is correct so far
 
+# ms: you're filtering this correctly because the anyNA() isn't part of the tidyverse package, so it's not taking in the inputed variable.
+
+# ms: when you do:
+anyNA("post_mn")
+# ms: you can see that it comes out as FALSE
+
 
 # Ethan sent me his code and I go through it here to solve the rest of the assignment because I got stuck after working on this for 2 hours
 # I believe this counts as citing my sources? 
+
+# ms: thanks for citing Ethan!
 
 
 # join dataset (from)
@@ -99,6 +113,8 @@ joined_justices <- full_join(scotus_data, justice_data, by=c("justiceName", "ter
 # filter to justices with Martin-Quinn Scores (from Ethan)
 filter(joined_justices, post_mn == TRUE)
 
+# ms: i'd do the following instead:
+joined_justices <- filter(joined_justices, !is.na(post_mn))
 
 
 # Problem 5: find the mean Martin-Quinn score for each term
@@ -140,6 +156,8 @@ compare_mq_decision <- inner_join(mqscore_term, decision_byterm,
                                   by="term")
 
 # Ethan noted that this results in a new variable that kept NAs
+
+# ms: it's keeping the NAs because he did a full_join() in Problem 4 and kept both the justicesName and terms and continued slicing the data from that object he created and keeping all term years
 
 # add column names to new variable to make it easier to understand (from Ethan)
 colnames(compare_mq_decision) <- c("term", "MQ Score", "Vote Direction")
