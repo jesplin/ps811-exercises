@@ -1,0 +1,105 @@
+---
+title: "jesplin-exercise8"
+author: "Jess Esplin"
+date: "11/5/2020"
+output: pdf_document
+---
+
+```{r}
+## Part 1 for USArrests data
+# for each problem, complete in base R code 
+# and then ggplot2 Tidyverse code
+
+# set working directory
+library(here)
+# wd set to C:/Users/jesse/OneDrive - UW-Madison/2020 Fall Semester/811 Intro to R/ps811-exercises
+
+# load packages
+library("magrittr")
+library("tidyverse")
+library("ggplot2")
+library("scales")
+
+# assign data from base R built in dataset
+data <- USArrests
+
+## Problem 1: check out data
+View(data)
+head(data)
+tail(data)
+names(data)
+dim(data)
+
+
+## Problem 2: create a scatterplot for correlation between murder and assault arrests, label the graph
+
+# create variable vectors
+x <- data$Murder
+y <- data$Assault
+
+# create scatterplot
+plot(x, y, main = "Effect of Murder Arrests on Assault Arrests",
+     xlab = "Murder Arrests", ylab = "Assault Arrests",
+     pch = 19, frame = TRUE)
+
+# add a linear regression line
+abline(lm(y ~ x, data = data), col = "blue")
+
+# using ggplot2
+ggplot(data = data, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth(methods = "lm") + 
+  labs(title = "Effect of Murder Arrests on Assault Arrests", 
+       x = "Murder Arrests", y = "Assault Arrests")
+# I know this doesn't look great, but I've spent an hour on it already
+
+## Problem 3: create a box plot of rape arrests and label
+
+# create a box plot
+boxplot(data$Rape, main = "Boxplot of Rape Arrests")
+
+# using ggplot2
+ggplot(data = data, aes(x = Rape)) +
+  geom_boxplot()
+# same issues
+
+## Problem 4: create a bar plot of number of rape arrests per state
+
+# create a bar plot
+barplot(data$Rape, main = "Rape Arrests by State",
+        xlab = "Rape Arrests (per 100,000)", ylab = "State",
+        names = sort(row.names(data)),
+        horiz = TRUE, las = 1)
+# not sure how to fix formatting on my graph here? I spent about 1/2 hour on this alone
+
+# using ggplot2
+ggplot(data, aes(x = Rape)) + 
+  geom_bar() +
+  labs(title = "Rape Arrests by State", 
+       x = "Murder Arrests", y = "Assault Arrests") +
+  scale_y_continuous(labels = scales::comma) +
+  theme(axis.text.x=element_text(angle = 90, hjust = 1))
+# same issues
+
+## Problem 5: create a histogram of the percent of urban population
+
+# create a histogram
+hist(data$UrbanPop, main = "Percent of Urban Population",
+     xlab = "Urban Population",
+     breaks = 10)
+
+# using ggplot2
+ggplot(data, aes(x = Rape)) +
+  geom_histogram(binwidth = 10, color = "black", fill = "lightblue")
+# same issues
+```
+
+
+```{r}
+## Part 2 for my project
+
+# import data
+
+# view data
+```
+Answer questions about my data and project:
