@@ -42,6 +42,7 @@ Didn't do this. I prefer using my file explorer.
 ```{r}
 #anes2016 <- read_dta(here("exercise 9/anes_timeseries_2016.dta"))
 # this didn't work and I'm not sure why
+# ms: it's because your anes_timeseries_2016.dta is already in your exercise 9 folder so you only have to do read_dta(here("anes_timeseries_2016.dta"))
 
 
 # set my working directory the way I normally do and was able to read the data in
@@ -92,6 +93,10 @@ anes2 <- subset(anes, subset = age > 0 &
 
 # attempted to select, didn't work
 #anes2_select <- c(anes2$homeowner, anes2$party_contribution, anes2$age, anes2$gender, anes2$race)
+
+# ms: this is the correct way to select the variables:
+anes2_select <- dplyr::select(anes2, homeowner, party_contribution, age, gender, race)
+# you might have to specify that you want to use select() from the dplyr package because one of your packages that you loaded may also have the select() command (it's annoying, i know)
 
 # turn it into a data frame?
 anes2 <- as.data.frame(anes2)
@@ -180,6 +185,14 @@ summary(logit_reg)
 stargazer(logit_reg , type = 'latex',
           title = "Effect of homeownership on party contributions",
           covariate.labels = c("Age", "Gender", "Race"),
+          dep.var.labels = "Party Contribution (1=GOP)",
+          header = FALSE
+          )
+
+# ms: so you actually want the following...         
+stargazer(logit_reg , type = 'latex',
+          title = "Effect of homeownership on party contributions",
+          covariate.labels = c("Homeowner", "Age", "Gender", "Race"),
           dep.var.labels = "Party Contribution (1=GOP)",
           header = FALSE
           )
