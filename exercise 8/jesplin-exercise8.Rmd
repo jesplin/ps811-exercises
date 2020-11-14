@@ -48,10 +48,20 @@ abline(lm(y ~ x, data = data), col = "blue")
 # using ggplot2
 ggplot(data = data, aes(x = x, y = y)) +
   geom_point() +
-  geom_smooth(methods = "lm") + 
+  geom_smooth(methods = "lm") + # it should be method, not methods...
   labs(title = "Effect of Murder Arrests on Assault Arrests", 
        x = "Murder Arrests", y = "Assault Arrests")
 # I know this doesn't look great, but I've spent an hour on it already
+
+# ms: consider this:
+
+ggplot(data = data, aes(x = Assault, y = Murder)) +
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  labs(title = "Effect of Murder Arrests on Assault Arrests", 
+       x = "Murder Arrests", y = "Assault Arrests")
+  
+ ###
 
 ## Problem 3: create a box plot of rape arrests and label
 
@@ -63,6 +73,14 @@ ggplot(data = data, aes(x = Rape)) +
   geom_boxplot()
 # same issues
 
+## ms: you can label it by doing this:
+ggplot(data = USArrests, aes(x = Rape))+
+  geom_boxplot(col = 1) + 
+  labs(title = "U.S. Rape Arrests", 
+       subtitle = "By U.S. State",
+       x= "Number of Arrests per 100,000")
+###
+
 ## Problem 4: create a bar plot of number of rape arrests per state
 
 # create a bar plot
@@ -71,6 +89,19 @@ barplot(data$Rape, main = "Rape Arrests by State",
         names = sort(row.names(data)),
         horiz = TRUE, las = 1)
 # not sure how to fix formatting on my graph here? I spent about 1/2 hour on this alone
+
+## ms: you can format the graph like this--specifically, using las (to make the x-axis ticks vertical, and cex-names to make the text smaller)
+
+# base R
+barplot(USArrests$Rape,
+        names = row.names(USArrests),
+        main = "U.S. Rape Arrests by State",
+        ylab = "Number of Arrests per 100,000",
+        las = 2,
+        cex.names = 0.5
+        )
+        
+###
 
 # using ggplot2
 ggplot(data, aes(x = Rape)) + 
@@ -92,6 +123,15 @@ hist(data$UrbanPop, main = "Percent of Urban Population",
 ggplot(data, aes(x = Rape)) +
   geom_histogram(binwidth = 10, color = "black", fill = "lightblue")
 # same issues
+```
+```
+# ms: you can do this--
+ggplot(data=USArrests, aes(x=UrbanPop)) +
+  geom_histogram(color = "Black", fill = "lightblue", bins = 10)+
+  labs(title = "Percent (%) of Urban Population", 
+       subtitle = "By U.S. State",
+       x= "Percent (%) Urban Pppulation")
+###
 ```
 
 
