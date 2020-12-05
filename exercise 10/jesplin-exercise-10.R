@@ -320,6 +320,7 @@ sotomayor_poole$interaction <-NA # this is the interaction between ideological d
 
 # bind the dataset to the bork dataset
 bork_sotomayor_poole <- full_join(bork, sotomayor_poole)
+# ms: you need to join sotomayor_poole with bork_alito_poole...bork dataframe is missing alito.
 names(bork_sotomayor_poole)
 # the last two columns are just for binding datasets before
 # you can just keep them there if they don't interfere with your analysis going forward
