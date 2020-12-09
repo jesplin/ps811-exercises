@@ -1,0 +1,205 @@
+---
+title: "Public Thought on the Black Lives Matter Movement"
+
+subtitle: 'Investigating organizational reference in SLC & Provo, UT through talk radio and tweets'
+
+date: "10 December 2020 | PS811 | UW-Madison"
+author: "Jess Esplin"
+
+
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+setwd("C:/Users/jesse/OneDrive - UW-Madison/2020 Fall Semester/811 Intro to R/ps811-exercises/final project")
+```
+
+
+## Background & Research Question
+
+- Observations of references to local community orgs vs national/global org
+
+
+- Does organizational reference vary with support for Black Lives Matter movement?
+
+
+- Schattschneider (1960), Zaller (1992), Nelson & Kinder (1994)
+
+
+\newpage
+## Hypotheses 
+
+- Independent variable: individual's support for (or opposition to) the Black Lives Matter movement
+
+
+- Dependent variable: the organization centered/referenced in individual's expression of public thought
+  - local vs national/global
+
+
+- Hypothesis: Support/opposition is correlated with organization centered in discourse
+
+  - $H_A$: $\beta \neq 0$
+  
+- Null: no correlation
+
+  - $H_0$: $\beta = 0$
+
+
+\newpage
+## Data
+
+- Talk radio data
+  
+  - SLC:
+    - RadioWest @ KUER
+    - The JayMac Show @ KSL Radio (formerly)
+  
+  - Provo: 
+    - The Lisa Show @ BYU Radio
+    - Top of Mind with Julie Rose @ BYU Radio
+
+- Tweets collected by MIT Media Lab
+
+
+\newpage
+## Method
+
+- Primarily inductive qualitative analysis + listening
+  - Talk radio shows
+
+- Descriptive stats + hypothesis test using t-test
+  - Tweets
+
+
+\newpage
+## Preliminary Results
+```{r, results=FALSE, warning=FALSE, echo=FALSE, message=FALSE}
+## TWEETS WORD CLOUD
+
+# load packages
+library("tm")
+library("SnowballC")
+library("wordcloud")
+library("RColorBrewer")
+
+# load text file with first 50 tweets
+text <- readLines("1000-tweets.txt")
+
+# convert data to corpus
+tweetstext <- Corpus(VectorSource(text))
+
+## clean up data
+
+# convert all text to lower case
+tweetstext <- tm_map(tweetstext, content_transformer(tolower))
+
+# remove numbers
+tweetstext <- tm_map(tweetstext, removeNumbers)
+
+# remove english common stopwords
+tweetstext <- tm_map(tweetstext, removeWords, stopwords("english"))
+
+# remove custom stopwords
+tweetstext <- tm_map(tweetstext, removeWords, c("like", "amp", "blacklivesmatter")) 
+
+# remove punctuation
+tweetstext <- tm_map(tweetstext, removePunctuation)
+
+# eliminate extra white spaces
+tweetstext <- tm_map(tweetstext, stripWhitespace)
+
+# build term-document matrix
+dtm <- TermDocumentMatrix(tweetstext)
+m <- as.matrix(dtm)
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+head(d, 10)
+
+# generate word cloud
+set.seed(1234)
+tweetwc <- wordcloud(words = d$word, scale=c(5,0.6),freq = d$freq, min.freq = 1,
+                     max.words=200, random.order=FALSE, rot.per=0.35, 
+                     colors=brewer.pal(5, "Spectral"))
+
+print(tweetwc)
+
+# thanks & credit on much of this code to STHDA website tutorial on word clouds: http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know
+```
+
+
+\newpage
+## Preliminary Results
+```{r, results=FALSE, warning=FALSE, echo=FALSE, message=FALSE}
+# plot word frequencies
+barplot(d[1:10,]$freq, las = 2, names.arg = d[1:10,]$word,
+        col ="lightblue", main ="Most frequent words",
+        ylab = "Word frequencies")
+```
+
+
+\newpage
+## Preliminary Results: excluding "Black Lives Matter" & "BLM"
+```{r, results=FALSE, warning=FALSE, echo=FALSE, message=FALSE}
+## TWEETS WORD CLOUD 2
+# attempt word cloud 4 excluding black lives matter or blm words
+
+# exclude movement names
+tweetstext2 <- tm_map(tweetstext, removeWords, c("black", "lives", "matter", "blm", "blacklivesmatter")) 
+
+# building term-document matrix
+dtm <- TermDocumentMatrix(tweetstext2)
+m <- as.matrix(dtm)
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+
+# look at most frequent words
+head(d, 10)
+
+# create word cloud
+set.seed(1234)
+tweetwc2 <- wordcloud(words = d$word, freq = d$freq, min.freq = 1,
+                     max.words=200, random.order=FALSE, rot.per=0.35, 
+                     colors=brewer.pal(5, "Dark2"))
+
+print(tweetwc2)
+```
+
+
+\newpage
+## Preliminary Results: excluding "Black Lives Matter" & "BLM"
+```{r, results=FALSE, warning=FALSE, echo=FALSE, message=FALSE}
+# plot word frequencies
+barplot(d[1:10,]$freq, las = 2, names.arg = d[1:10,]$word,
+        col ="lightblue", main ="Most frequent words",
+        ylab = "Word frequencies")
+```
+
+
+\newpage
+## Discussion & Conclusion
+
+- xxx
+  - xxx
+
+- xxx
+
+- xxx
+  - xxx
+  - xxx
+  - xxx
+
+
+\newpage
+## References
+
+\begin{itemize}
+\item[1)] xxx
+\item[2)] xxx
+\item[3)] xxx
+\item[4)] xxx
+\item[5)] xxx
+\item[6)] xxx
+\item[7)] xxx
+\end{itemize}
