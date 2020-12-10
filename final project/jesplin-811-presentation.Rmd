@@ -22,7 +22,7 @@ setwd("C:/Users/jesse/OneDrive - UW-Madison/2020 Fall Semester/811 Intro to R/ps
 - Observations of references to local community orgs vs national/global org
 
 
-- Does organizational reference vary with support for Black Lives Matter movement?
+- Does organizational reference vary with support for the Black Lives Matter movement?
 
 
 - Schattschneider (1960), Zaller (1992), Nelson & Kinder (1994)
@@ -66,11 +66,11 @@ setwd("C:/Users/jesse/OneDrive - UW-Madison/2020 Fall Semester/811 Intro to R/ps
 \newpage
 ## Method
 
-- Primarily inductive qualitative analysis + listening
-  - Talk radio shows
+- Talk radio shows 
+  - Primarily inductive qualitative analysis + listening
 
-- Descriptive stats + hypothesis test using t-test
-  - Tweets
+- Tweets
+  - Descriptive stats + hypothesis test using t-test
 
 
 \newpage
@@ -180,26 +180,13 @@ barplot(d[1:10,]$freq, las = 2, names.arg = d[1:10,]$word,
 \newpage
 ## Discussion & Conclusion
 
-- xxx
-  - xxx
+- White comes up frequently
 
-- xxx
+- Political parties don't come up frequently
+  - Trump is referenced a lot though
 
-- xxx
-  - xxx
-  - xxx
-  - xxx
+- Swear words
 
-
-\newpage
-## References
-
-\begin{itemize}
-\item[1)] xxx
-\item[2)] xxx
-\item[3)] xxx
-\item[4)] xxx
-\item[5)] xxx
-\item[6)] xxx
-\item[7)] xxx
-\end{itemize}
+- Initial talk radio data
+  - Largely what I'd expected to see in terms of pos/neg terms
+  - Not seeing much reference to organizations yet
